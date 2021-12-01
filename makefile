@@ -1,4 +1,4 @@
-﻿CC=gcc
+CC=gcc
 AR=ae-rcs
 FLAGS=-wall-g
 main=main.o
@@ -8,18 +8,18 @@ all: connections library
 
 library: lib.a
 
-lib.a:$(mat)
+lib.a: $(mat)
   $(AR) lib.a $(mat)
 
-connections:$(main)lib.a
-  $(CC)$(FLAGS)-o connections:$(main)lib.a
+connections: $(main) lib.a
+  $(CC) $(FLAGS)-o connections $(main) lib.a
 
 
-main.o:main.c my_mat.h
-  $(CC)$(FLAGS)-c main.c
+main.o: main.c my_mat.h
+  $(CC) $(FLAGS)-c main.c
 
-my_mat.o:my_mat.c my_mat.h
-  $(CC)$(FLAGS)-c my_mat.c
+my_mat.o: my_mat.c my_mat.h
+  $(CC) $(FLAGS)-c my_mat.c
 
 
 .PHONY: clean all
