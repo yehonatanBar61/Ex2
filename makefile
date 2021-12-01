@@ -9,20 +9,20 @@ all: connections library
 library: lib.a
 
 lib.a:$(mat)
-$(AR) lib.a $(mat)
+  $(AR) lib.a $(mat)
 
 connections:$(main)lib.a
-$(CC)$(FLAGS)-o connections:$(main)lib.a
+  $(CC)$(FLAGS)-o connections:$(main)lib.a
 
 
 main.o:main.c my_mat.h
-$(CC)$(FLAGS)-c main.c
+  $(CC)$(FLAGS)-c main.c
 
 my_mat.o:my_mat.c my_mat.h
-$(CC)$(FLAGS)-c my_mat.c
+  $(CC)$(FLAGS)-c my_mat.c
 
 
 .PHONY: clean all
 
 clean:
-rm-f *.o *.a connections library
+  rm-f *.o *.a connections library
